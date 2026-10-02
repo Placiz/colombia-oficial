@@ -10,15 +10,16 @@ export async function ciclo(feeds, almacen) {
 
   const res = await pool(feeds, config.concurrencia, async (feed) => {
     let items;
+    // Se calcula antes de leer: el lector puede crear la entrada del feed.
+    const primeraVez = !almacen.feed(feed.clave)?.ultimoOk;
     try {
-      items = await leerFeed(feed);
+      items = await leerFeed(feed, { feedEstado: almacen.estadoDe(feed.clave), global: almacen.estado });
     } catch (e) {
       almacen.feedError(feed.clave, e.cause?.code || e.message);
       return { ok: false };
     }
     // La primera lectura de un feed solo "siembra": se guarda el historial
     // sin notificarlo, y desde ahí únicamente se avisa lo nuevo.
-    const primeraVez = !almacen.feed(feed.clave)?.ultimoOk;
     const nuevos = almacen.registrarVistos(feed.clave, items.map((i) => i.guid));
     const ahora = new Date().toISOString();
     let notificables = 0;

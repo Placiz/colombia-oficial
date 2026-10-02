@@ -23,6 +23,7 @@ export function cargar() {
     estado,
     publicaciones,
     feed: (clave) => estado.feeds[clave],
+    estadoDe: (clave) => (estado.feeds[clave] ||= { guids: [] }),
 
     /** Registra los guids vistos en un feed y devuelve los que son nuevos. */
     registrarVistos(clave, guids) {

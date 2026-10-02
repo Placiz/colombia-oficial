@@ -30,21 +30,30 @@ async function leerTelegram(feed) {
   });
 }
 
-// API oficial de X (requiere X_BEARER_TOKEN; es de pago).
-const idsX = new Map();
-async function leerXApi(feed) {
+// API oficial de X (requiere X_BEARER_TOKEN). X cobra por cada post devuelto,
+// así que se guarda el id del usuario y el último post visto (since_id): cada
+// post se paga una sola vez y una consulta sin novedades no devuelve nada.
+// Además hay un tope mensual de posts leídos (X_LIMITE_MENSUAL).
+async function leerXApi(feed, { feedEstado, global }) {
   const headers = { Authorization: `Bearer ${config.x.bearer}` };
-  let id = idsX.get(feed.ident);
-  if (!id) {
+  const mes = new Date().toISOString().slice(0, 7);
+  const uso = (global.usoX ||= { mes, posts: 0 });
+  if (uso.mes !== mes) Object.assign(uso, { mes, posts: 0 });
+  if (uso.posts >= config.x.limiteMensual) throw new Error(`Tope mensual de X alcanzado (${uso.posts} posts)`);
+
+  if (!feedEstado.xUsuarioId) {
     const r = await fetchJson(`https://api.x.com/2/users/by/username/${feed.ident}`, { headers });
-    id = r.data?.id;
-    if (!id) throw new Error(`Usuario de X no encontrado: ${feed.ident}`);
-    idsX.set(feed.ident, id);
+    if (!r.data?.id) throw new Error(`Usuario de X no encontrado: ${feed.ident}`);
+    feedEstado.xUsuarioId = r.data.id;
   }
-  const r = await fetchJson(
-    `https://api.x.com/2/users/${id}/tweets?max_results=5&exclude=replies,retweets&tweet.fields=created_at`,
-    { headers }
-  );
+  const params = new URLSearchParams({ exclude: 'replies,retweets', 'tweet.fields': 'created_at', max_results: '5' });
+  if (feedEstado.xSinceId) {
+    params.set('since_id', feedEstado.xSinceId);
+    params.set('max_results', '20');
+  }
+  const r = await fetchJson(`https://api.x.com/2/users/${feedEstado.xUsuarioId}/tweets?${params}`, { headers });
+  uso.posts += r.meta?.result_count || 0;
+  if (r.meta?.newest_id) feedEstado.xSinceId = r.meta.newest_id;
   return (r.data || []).map((t) => ({
     guid: t.id,
     title: t.text.split('\n')[0].slice(0, 140),
@@ -57,7 +66,8 @@ async function leerXApi(feed) {
 
 const LECTORES = { rss: leerRss, telegram: leerTelegram, 'x-api': leerXApi };
 
-export async function leerFeed(feed) {
-  const items = await LECTORES[feed.tipo](feed);
+/** ctx: { feedEstado, global } para lectores que necesitan recordar algo entre pasadas. */
+export async function leerFeed(feed, ctx) {
+  const items = await LECTORES[feed.tipo](feed, ctx);
   return items.filter((i) => i.guid);
 }

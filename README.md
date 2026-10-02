@@ -47,7 +47,21 @@ extrae sus cuentas oficiales y feeds RSS, y los guarda en `fuentes.json`
 | Telegram | Vista pública `t.me/s/<canal>` | Activo si la entidad tiene canal |
 | X, Facebook, Instagram, TikTok, Threads | Puente RSS propio o API de X | Requiere configuración |
 
-X, Meta y TikTok no ofrecen feeds públicos y bloquean la lectura automática.
+### X (Twitter)
+
+`fuentes.json` ya tiene la cuenta oficial de X de 58 de las 61 entidades. Para
+leer sus posts se usa la API oficial, que cobra unos 0,005 USD por post leído
+(pago por uso, sin cuota fija). El monitor guarda el último post visto de cada
+cuenta, así que cada post se paga una sola vez y una revisión sin novedades no
+cuesta nada. Para activarlo:
+
+1. Crea una app en [console.x.com](https://console.x.com), carga saldo y copia el *Bearer Token*.
+2. En el repositorio, Secrets: `X_BEARER_TOKEN`.
+3. Opcional, Variables: `X_LIMITE_MENSUAL` (posts por mes, por defecto 15000, unos 75 USD como máximo).
+
+### Facebook, Instagram, TikTok, Threads
+
+Meta y TikTok no ofrecen feeds públicos y bloquean la lectura automática.
 Para incluirlas hace falta un puente como [RSSHub](https://docs.rsshub.app)
 alojado por ti; luego defines las variables `PUENTE_X`, `PUENTE_INSTAGRAM`, etc.
 (ver `.env.example`). Mientras tanto, la pestaña **Fuentes** de la web muestra

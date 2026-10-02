@@ -24,7 +24,8 @@ export const config = {
     canal: env('TELEGRAM_CANAL'),
   },
 
-  x: { bearer: env('X_BEARER_TOKEN') },
+  // X cobra ~0,005 USD por post leído: 15.000 posts/mes ≈ 75 USD como máximo.
+  x: { bearer: env('X_BEARER_TOKEN'), limiteMensual: num('X_LIMITE_MENSUAL', 15000) },
 
   // Plantillas de "puente" a RSS para redes sin feed público.
   // Ej. RSSHub: PUENTE_X=https://mi-rsshub.com/twitter/user/{usuario}

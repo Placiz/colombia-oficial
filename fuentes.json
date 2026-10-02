@@ -1,0 +1,948 @@
+[
+  {
+    "id": "presidencia",
+    "nombre": "Presidencia de la República",
+    "categoria": "Ejecutivo",
+    "web": "https://www.presidencia.gov.co",
+    "cuentas": {
+      "x": "infopresidencia",
+      "facebook": "PresidenciadeColombia",
+      "instagram": "infopresidencia",
+      "youtube": {
+        "ruta": "user/SIGCOLOMBIA",
+        "channelId": "UCeU8nhO6mGDvNGcq6iW_VFQ"
+      },
+      "tiktok": "presidenciadecolombia"
+    },
+    "rss": []
+  },
+  {
+    "id": "vicepresidencia",
+    "nombre": "Vicepresidencia de la República",
+    "categoria": "Ejecutivo",
+    "web": "https://www.vicepresidencia.gov.co",
+    "cuentas": {},
+    "rss": []
+  },
+  {
+    "id": "mininterior",
+    "nombre": "Ministerio del Interior",
+    "categoria": "Ministerios",
+    "web": "https://www.mininterior.gov.co",
+    "cuentas": {
+      "x": "MinInterior",
+      "facebook": "MinInterior",
+      "instagram": "mininterior",
+      "youtube": {
+        "ruta": "c/MininteriorGovCol",
+        "channelId": "UCcqhZWYOWGhrdlqNQ43gLgA"
+      }
+    },
+    "rss": [
+      "https://www.mininterior.gov.co/feed/"
+    ]
+  },
+  {
+    "id": "cancilleria",
+    "nombre": "Cancillería",
+    "categoria": "Ministerios",
+    "web": "https://www.cancilleria.gov.co",
+    "cuentas": {
+      "x": "CancilleriaCol",
+      "facebook": "CancilleriaCol",
+      "instagram": "cancilleriacol",
+      "youtube": {
+        "ruta": "@CancilleriaGovCol",
+        "channelId": "UCy6kYPJlQOCRN-EgIbD70fQ"
+      },
+      "tiktok": "cancilleriacol"
+    },
+    "rss": [
+      "https://www.cancilleria.gov.co/rss.xml"
+    ]
+  },
+  {
+    "id": "minhacienda",
+    "nombre": "Ministerio de Hacienda",
+    "categoria": "Ministerios",
+    "web": "https://www.minhacienda.gov.co",
+    "cuentas": {
+      "x": "MinHacienda"
+    },
+    "rss": [],
+    "_manual": "Cuenta de X agregada a mano: el sitio no expone sus redes en el HTML."
+  },
+  {
+    "id": "minjusticia",
+    "nombre": "Ministerio de Justicia",
+    "categoria": "Ministerios",
+    "web": "https://www.minjusticia.gov.co",
+    "cuentas": {
+      "x": "MinjusticiaCo",
+      "facebook": "MinJusticiaCo",
+      "instagram": "minjusticiaco"
+    },
+    "rss": []
+  },
+  {
+    "id": "mindefensa",
+    "nombre": "Ministerio de Defensa",
+    "categoria": "Ministerios",
+    "web": "https://www.mindefensa.gov.co",
+    "cuentas": {
+      "youtube": {
+        "ruta": "@mindefensa",
+        "channelId": "UCcw2aiMp3ZNctLwddaM2HOg"
+      }
+    },
+    "rss": []
+  },
+  {
+    "id": "minagricultura",
+    "nombre": "Ministerio de Agricultura",
+    "categoria": "Ministerios",
+    "web": "https://www.minagricultura.gov.co",
+    "cuentas": {
+      "x": "minagricultura",
+      "facebook": "minagriculturacol",
+      "instagram": "minagriculturacol"
+    },
+    "rss": []
+  },
+  {
+    "id": "minsalud",
+    "nombre": "Ministerio de Salud",
+    "categoria": "Ministerios",
+    "web": "https://www.minsalud.gov.co",
+    "cuentas": {
+      "x": "MinSaludCol",
+      "facebook": "MinSaludCol",
+      "instagram": "minsaludcol",
+      "youtube": {
+        "ruta": "user/MinSaludColPrensa",
+        "channelId": "UCnkrxrpSM_pWuKg8rWR_0ug"
+      },
+      "tiktok": "minsaludcol"
+    },
+    "rss": []
+  },
+  {
+    "id": "mintrabajo",
+    "nombre": "Ministerio del Trabajo",
+    "categoria": "Ministerios",
+    "web": "https://www.mintrabajo.gov.co",
+    "cuentas": {
+      "x": "MintrabajoCol",
+      "facebook": "MinTrabajoCol",
+      "instagram": "mintrabajocol",
+      "tiktok": "mintrabajocol"
+    },
+    "rss": []
+  },
+  {
+    "id": "minenergia",
+    "nombre": "Ministerio de Minas y Energía",
+    "categoria": "Ministerios",
+    "web": "https://www.minenergia.gov.co",
+    "cuentas": {
+      "x": "MinEnergiaCo",
+      "facebook": "MinEnergiaCo",
+      "instagram": "ministeriominasyenergia",
+      "youtube": {
+        "ruta": "user/MinisteriodeMinas",
+        "channelId": "UCLJ5uRrLT6PW7D8d1o3PEDw"
+      },
+      "tiktok": "minenergia"
+    },
+    "rss": []
+  },
+  {
+    "id": "mincit",
+    "nombre": "Ministerio de Comercio, Industria y Turismo",
+    "categoria": "Ministerios",
+    "web": "https://www.mincit.gov.co",
+    "cuentas": {
+      "x": "MincomercioCo",
+      "instagram": "mincomercioco"
+    },
+    "rss": []
+  },
+  {
+    "id": "mineducacion",
+    "nombre": "Ministerio de Educación",
+    "categoria": "Ministerios",
+    "web": "https://www.mineducacion.gov.co",
+    "cuentas": {
+      "x": "Mineducacion",
+      "facebook": "Mineducacion",
+      "instagram": "mineducacioncol",
+      "youtube": {
+        "ruta": "channel/UCwdbQiqF4uzBj8ihqWKmQAQ",
+        "channelId": "UCwdbQiqF4uzBj8ihqWKmQAQ"
+      },
+      "tiktok": "mineducacioncolombia"
+    },
+    "rss": []
+  },
+  {
+    "id": "minambiente",
+    "nombre": "Ministerio de Ambiente",
+    "categoria": "Ministerios",
+    "web": "https://www.minambiente.gov.co",
+    "cuentas": {
+      "x": "MinAmbienteCo",
+      "instagram": "minambientecol",
+      "youtube": {
+        "ruta": "user/minambientegov",
+        "channelId": "UCAVGuN7WkK8BvO7doqi_SOg"
+      },
+      "tiktok": "minambientecol"
+    },
+    "rss": [
+      "https://www.minambiente.gov.co/feed/"
+    ]
+  },
+  {
+    "id": "minvivienda",
+    "nombre": "Ministerio de Vivienda",
+    "categoria": "Ministerios",
+    "web": "https://www.minvivienda.gov.co",
+    "cuentas": {
+      "x": "minvivienda",
+      "facebook": "minvivienda",
+      "instagram": "minvivienda",
+      "youtube": {
+        "ruta": "user/minvivienda",
+        "channelId": "UCnrqNpdn9Ryt_mECNjRXGlw"
+      }
+    },
+    "rss": []
+  },
+  {
+    "id": "mintic",
+    "nombre": "Ministerio TIC",
+    "categoria": "Ministerios",
+    "web": "https://www.mintic.gov.co",
+    "cuentas": {
+      "x": "Ministerio_TIC"
+    },
+    "rss": [],
+    "_manual": "Cuenta de X agregada a mano: el sitio no expone sus redes en el HTML."
+  },
+  {
+    "id": "mintransporte",
+    "nombre": "Ministerio de Transporte",
+    "categoria": "Ministerios",
+    "web": "https://www.mintransporte.gov.co",
+    "cuentas": {
+      "x": "MinTransporteCo",
+      "facebook": "MintransporteColombiaoficial",
+      "instagram": "mintransporteco",
+      "youtube": {
+        "ruta": "user/Mintransporte",
+        "channelId": "UCzRm38pIZupx2Bp9r-gWEXQ"
+      },
+      "tiktok": "mintransporte"
+    },
+    "rss": []
+  },
+  {
+    "id": "mincultura",
+    "nombre": "Ministerio de las Culturas",
+    "categoria": "Ministerios",
+    "web": "https://www.mincultura.gov.co",
+    "cuentas": {
+      "x": "mincultura",
+      "facebook": "MinisterioCultura",
+      "instagram": "mincultura",
+      "youtube": {
+        "ruta": "user/Mincultura",
+        "channelId": "UCRiBowudnZOUho5dSGjmObA"
+      },
+      "tiktok": "minculturas"
+    },
+    "rss": []
+  },
+  {
+    "id": "mindeporte",
+    "nombre": "Ministerio del Deporte",
+    "categoria": "Ministerios",
+    "web": "https://www.mindeporte.gov.co",
+    "cuentas": {
+      "x": "MinDeporteCol",
+      "facebook": "MinDeporteCol",
+      "instagram": "MinDeporteCol",
+      "youtube": {
+        "ruta": "@MinisteriodelDeporteColombia",
+        "channelId": "UCAyBxQg0nYyoIAoau-PqBKg"
+      },
+      "tiktok": "mindeportecol"
+    },
+    "rss": []
+  },
+  {
+    "id": "minciencias",
+    "nombre": "Ministerio de Ciencia",
+    "categoria": "Ministerios",
+    "web": "https://minciencias.gov.co",
+    "cuentas": {
+      "x": "MincienciasCo",
+      "facebook": "MincienciasCo",
+      "instagram": "minciencias_co",
+      "youtube": {
+        "ruta": "channel/UCnHLPpahfZdAMLON_EedlcA",
+        "channelId": "UCnHLPpahfZdAMLON_EedlcA"
+      }
+    },
+    "rss": [
+      "https://minciencias.gov.co/rss.xml"
+    ]
+  },
+  {
+    "id": "dnp",
+    "nombre": "Departamento Nacional de Planeación",
+    "categoria": "Departamentos administrativos",
+    "web": "https://www.dnp.gov.co",
+    "cuentas": {
+      "facebook": "DNPColombia",
+      "youtube": {
+        "ruta": "channel/UCx25Fx8FD1URCYzlGVyLZ0w",
+        "channelId": "UCx25Fx8FD1URCYzlGVyLZ0w"
+      }
+    },
+    "rss": []
+  },
+  {
+    "id": "dane",
+    "nombre": "DANE",
+    "categoria": "Departamentos administrativos",
+    "web": "https://www.dane.gov.co",
+    "cuentas": {
+      "x": "dane_colombia",
+      "facebook": "DANEColombia",
+      "instagram": "danecolombia",
+      "youtube": {
+        "ruta": "@DaneColombia",
+        "channelId": "UCYy8IrPkH37J6Jd3B4x0yBA"
+      },
+      "tiktok": "dane_colombia"
+    },
+    "rss": []
+  },
+  {
+    "id": "funcionpublica",
+    "nombre": "Función Pública",
+    "categoria": "Departamentos administrativos",
+    "web": "https://www.funcionpublica.gov.co",
+    "cuentas": {
+      "x": "DAFP_COLOMBIA",
+      "facebook": "FuncionPublica",
+      "instagram": "funcionpublicacolombia",
+      "youtube": {
+        "ruta": "@funcionpublicacol",
+        "channelId": "UCesO5i_SDvfepfsiCqSFc3Q"
+      },
+      "tiktok": "funcionpublica",
+      "threads": "funcionpublicacolombia"
+    },
+    "rss": []
+  },
+  {
+    "id": "prosperidadsocial",
+    "nombre": "Prosperidad Social",
+    "categoria": "Departamentos administrativos",
+    "web": "https://prosperidadsocial.gov.co",
+    "cuentas": {
+      "x": "ProsperidadCol",
+      "facebook": "Prosperidad.Social",
+      "instagram": "prosperidadcol",
+      "youtube": {
+        "ruta": "user/DPSColombia",
+        "channelId": "UCn8TWTrGkYH4SqGzmmGjbeQ"
+      },
+      "tiktok": "prosperidadcol",
+      "threads": "prosperidadcol"
+    },
+    "rss": [
+      "https://prosperidadsocial.gov.co/feed/"
+    ]
+  },
+  {
+    "id": "dian",
+    "nombre": "DIAN",
+    "categoria": "Entidades nacionales",
+    "web": "https://www.dian.gov.co",
+    "cuentas": {
+      "x": "DIANColombia",
+      "facebook": "DIANCol",
+      "instagram": "diancolombia",
+      "youtube": {
+        "ruta": "channel/UCkaPJ8afIoa_RDKEHaQIxrw",
+        "channelId": "UCkaPJ8afIoa_RDKEHaQIxrw"
+      },
+      "tiktok": "diancolombia"
+    },
+    "rss": []
+  },
+  {
+    "id": "senado",
+    "nombre": "Senado de la República",
+    "categoria": "Legislativo",
+    "web": "https://www.senado.gov.co",
+    "cuentas": {
+      "x": "SenadoGovCo",
+      "facebook": "senadogovco",
+      "instagram": "senadogovco",
+      "youtube": {
+        "ruta": "channel/UCJfKMFp7dtO8mpHT56X0kJQ",
+        "channelId": "UCJfKMFp7dtO8mpHT56X0kJQ"
+      }
+    },
+    "rss": []
+  },
+  {
+    "id": "camara",
+    "nombre": "Cámara de Representantes",
+    "categoria": "Legislativo",
+    "web": "https://www.camara.gov.co",
+    "cuentas": {
+      "x": "CamaraColombia",
+      "facebook": "CamaraColombia",
+      "instagram": "camaracolombia",
+      "youtube": {
+        "ruta": "@CamaraColombia",
+        "channelId": "UCzescUFTh2jiZkYIx9uZtqA"
+      },
+      "tiktok": "camaracolombia"
+    },
+    "rss": [
+      "https://www.camara.gov.co/feed/"
+    ]
+  },
+  {
+    "id": "corteconstitucional",
+    "nombre": "Corte Constitucional",
+    "categoria": "Judicial",
+    "web": "https://www.corteconstitucional.gov.co",
+    "cuentas": {
+      "x": "CConstitucional"
+    },
+    "rss": [],
+    "_manual": "Cuenta de X agregada a mano: el sitio no expone sus redes en el HTML."
+  },
+  {
+    "id": "cortesuprema",
+    "nombre": "Corte Suprema de Justicia",
+    "categoria": "Judicial",
+    "web": "https://cortesuprema.gov.co",
+    "cuentas": {
+      "x": "CorteSupremaJ",
+      "instagram": "cortesupremaj",
+      "youtube": {
+        "ruta": "channel/UC7_SLsflSL2955-ULtEhc6w",
+        "channelId": "UC7_SLsflSL2955-ULtEhc6w"
+      }
+    },
+    "rss": [
+      "https://cortesuprema.gov.co/feed/"
+    ]
+  },
+  {
+    "id": "consejodeestado",
+    "nombre": "Consejo de Estado",
+    "categoria": "Judicial",
+    "web": "https://www.consejodeestado.gov.co",
+    "cuentas": {
+      "x": "consejodeestado",
+      "facebook": "Consejo-de-Estado-366461793811276",
+      "instagram": "consejodeestado",
+      "youtube": {
+        "ruta": "channel/UC0z0WQkYqgZIYmn320PpyOA",
+        "channelId": "UC0z0WQkYqgZIYmn320PpyOA"
+      }
+    },
+    "rss": [
+      "https://www.consejodeestado.gov.co/feed/index.htm.rss"
+    ]
+  },
+  {
+    "id": "ramajudicial",
+    "nombre": "Rama Judicial",
+    "categoria": "Judicial",
+    "web": "https://www.ramajudicial.gov.co",
+    "cuentas": {
+      "x": "judicaturacsj",
+      "facebook": "ConsejoSuperiorJudicatura",
+      "instagram": "consejosuperiorjudicatura",
+      "youtube": {
+        "ruta": "channel/UCBHrdbfpLE2lNsu4CTpDanA",
+        "channelId": "UCBHrdbfpLE2lNsu4CTpDanA"
+      }
+    },
+    "rss": []
+  },
+  {
+    "id": "jep",
+    "nombre": "Jurisdicción Especial para la Paz",
+    "categoria": "Judicial",
+    "web": "https://www.jep.gov.co",
+    "cuentas": {
+      "x": "JEP_Colombia",
+      "facebook": "ColombiaJEP",
+      "instagram": "JEP_Colombia",
+      "youtube": {
+        "ruta": "channel/UCay5mclHBbWQTQ8fhoNCWow",
+        "channelId": "UCay5mclHBbWQTQ8fhoNCWow"
+      },
+      "tiktok": "jep_colombia"
+    },
+    "rss": []
+  },
+  {
+    "id": "fiscalia",
+    "nombre": "Fiscalía General de la Nación",
+    "categoria": "Judicial",
+    "web": "https://www.fiscalia.gov.co",
+    "cuentas": {
+      "x": "FiscaliaCol",
+      "facebook": "FiscaliaCol",
+      "instagram": "fiscaliacol",
+      "youtube": {
+        "ruta": "@fiscaliageneraldelanacion-4668",
+        "channelId": "UCh2Fz2CvogRUda9tLMLDefQ"
+      }
+    },
+    "rss": [
+      "https://www.fiscalia.gov.co/feed/"
+    ]
+  },
+  {
+    "id": "procuraduria",
+    "nombre": "Procuraduría General",
+    "categoria": "Órganos de control",
+    "web": "https://www.procuraduria.gov.co",
+    "cuentas": {
+      "x": "PGN_COL",
+      "facebook": "PGNCOL",
+      "instagram": "procuraduria",
+      "youtube": {
+        "ruta": "c/PGNCUENTAOFICIAL",
+        "channelId": "UCKeS-MRXwN40EvbMHro1A6g"
+      },
+      "threads": "procuraduria"
+    },
+    "rss": []
+  },
+  {
+    "id": "contraloria",
+    "nombre": "Contraloría General",
+    "categoria": "Órganos de control",
+    "web": "https://www.contraloria.gov.co",
+    "cuentas": {
+      "x": "CGR_Colombia",
+      "facebook": "contraloriacolombia",
+      "instagram": "cgr_colombia",
+      "youtube": {
+        "ruta": "@ContraloriaColombia",
+        "channelId": "UCoFrMHn8v_WfYO8YdZZdBUQ"
+      },
+      "tiktok": "cgr_colombia"
+    },
+    "rss": []
+  },
+  {
+    "id": "defensoria",
+    "nombre": "Defensoría del Pueblo",
+    "categoria": "Órganos de control",
+    "web": "https://www.defensoria.gov.co",
+    "cuentas": {
+      "x": "DefensoriaCol",
+      "facebook": "DefensoriadelPuebloColombia",
+      "instagram": "defensoriacol",
+      "youtube": {
+        "ruta": "channel/UCGh9yKf31deyX-5xkjIh5qg",
+        "channelId": "UCGh9yKf31deyX-5xkjIh5qg"
+      }
+    },
+    "rss": []
+  },
+  {
+    "id": "registraduria",
+    "nombre": "Registraduría Nacional",
+    "categoria": "Organización electoral",
+    "web": "https://www.registraduria.gov.co",
+    "cuentas": {
+      "x": "Registraduria"
+    },
+    "rss": [],
+    "_manual": "Cuenta de X agregada a mano: el sitio no expone sus redes en el HTML."
+  },
+  {
+    "id": "cne",
+    "nombre": "Consejo Nacional Electoral",
+    "categoria": "Organización electoral",
+    "web": "https://www.cne.gov.co",
+    "cuentas": {
+      "x": "CNE_COLOMBIA",
+      "facebook": "consejonacionalelectoral",
+      "instagram": "cne_colombia",
+      "youtube": {
+        "ruta": "c/ConsejoNacionalElectoralColombia",
+        "channelId": "UC5SN2eL-saQcL4gzAB-eHUQ"
+      }
+    },
+    "rss": []
+  },
+  {
+    "id": "banrep",
+    "nombre": "Banco de la República",
+    "categoria": "Entidades nacionales",
+    "web": "https://www.banrep.gov.co",
+    "cuentas": {
+      "x": "BancoRepublica"
+    },
+    "rss": [],
+    "_manual": "Cuenta de X agregada a mano: el sitio no expone sus redes en el HTML."
+  },
+  {
+    "id": "policia",
+    "nombre": "Policía Nacional",
+    "categoria": "Fuerza Pública",
+    "web": "https://www.policia.gov.co",
+    "cuentas": {
+      "x": "PoliciaColombia",
+      "facebook": "Policianacionaldeloscolombianos",
+      "instagram": "policiadecolombia",
+      "youtube": {
+        "ruta": "@policiadecolombia",
+        "channelId": "UCL10vuW1BaoRafH2ZgmhOaw"
+      },
+      "tiktok": "policiadecolombia"
+    },
+    "rss": [
+      "https://www.policia.gov.co/rss.xml"
+    ]
+  },
+  {
+    "id": "ejercito",
+    "nombre": "Ejército Nacional",
+    "categoria": "Fuerza Pública",
+    "web": "https://www.ejercito.mil.co",
+    "cuentas": {
+      "x": "COL_EJERCITO"
+    },
+    "rss": [],
+    "_manual": "Cuenta de X agregada a mano: el sitio no expone sus redes en el HTML."
+  },
+  {
+    "id": "armada",
+    "nombre": "Armada de Colombia",
+    "categoria": "Fuerza Pública",
+    "web": "https://www.armada.mil.co",
+    "cuentas": {
+      "x": "armadacolombia",
+      "facebook": "ArmadaDeColombia",
+      "instagram": "armadacolombia",
+      "youtube": {
+        "ruta": "user/ArmadaNacionalvideos",
+        "channelId": "UCYUJ_SKl3JQrQc_Gh4912jQ"
+      },
+      "tiktok": "armadacolombiaoficial"
+    },
+    "rss": []
+  },
+  {
+    "id": "fac",
+    "nombre": "Fuerza Aeroespacial Colombiana",
+    "categoria": "Fuerza Pública",
+    "web": "https://www.fac.mil.co",
+    "cuentas": {
+      "x": "fuerzaaereacol",
+      "facebook": "FuerzaAereaCol",
+      "instagram": "fuerzaaereacol",
+      "tiktok": "fuerzaaereacol"
+    },
+    "rss": [
+      "https://www.fac.mil.co/rss.xml"
+    ]
+  },
+  {
+    "id": "cgfm",
+    "nombre": "Fuerzas Militares (Comando General)",
+    "categoria": "Fuerza Pública",
+    "web": "https://www.cgfm.mil.co",
+    "cuentas": {
+      "x": "FuerzasMilCol",
+      "facebook": "FuerzasMilitaresColombia",
+      "instagram": "fuerzasmilcol",
+      "youtube": {
+        "ruta": "channel/UCzBCHwf-s3yqNcOU11lYpLQ",
+        "channelId": "UCzBCHwf-s3yqNcOU11lYpLQ"
+      },
+      "tiktok": "fuerzasmilitarescol",
+      "threads": "fuerzasmilcol"
+    },
+    "rss": [
+      "https://www.cgfm.mil.co/rss.xml"
+    ]
+  },
+  {
+    "id": "migracion",
+    "nombre": "Migración Colombia",
+    "categoria": "Entidades nacionales",
+    "web": "https://www.migracioncolombia.gov.co",
+    "cuentas": {
+      "x": "migracioncol",
+      "facebook": "MigracionCol",
+      "instagram": "migracioncol"
+    },
+    "rss": []
+  },
+  {
+    "id": "ungrd",
+    "nombre": "UNGRD (Gestión del Riesgo)",
+    "categoria": "Entidades nacionales",
+    "web": "https://portal.gestiondelriesgo.gov.co",
+    "cuentas": {
+      "x": "UNGRD",
+      "facebook": "GestionUNGRD",
+      "instagram": "ungrd_oficial"
+    },
+    "rss": []
+  },
+  {
+    "id": "ideam",
+    "nombre": "IDEAM",
+    "categoria": "Entidades nacionales",
+    "web": "https://www.ideam.gov.co",
+    "cuentas": {
+      "x": "IDEAMColombia",
+      "facebook": "ideam.instituto",
+      "instagram": "ideamcolombia",
+      "youtube": {
+        "ruta": "user/InstitutoIDEAM",
+        "channelId": "UCG41pStAT9oAZ6_c6f6TieQ"
+      }
+    },
+    "rss": [
+      "https://www.ideam.gov.co/rss.xml"
+    ]
+  },
+  {
+    "id": "invima",
+    "nombre": "INVIMA",
+    "categoria": "Entidades nacionales",
+    "web": "https://www.invima.gov.co",
+    "cuentas": {
+      "x": "invimacolombia"
+    },
+    "rss": [],
+    "_manual": "Cuenta de X agregada a mano: el sitio no expone sus redes en el HTML."
+  },
+  {
+    "id": "ins",
+    "nombre": "Instituto Nacional de Salud",
+    "categoria": "Entidades nacionales",
+    "web": "https://www.ins.gov.co",
+    "cuentas": {
+      "x": "INSColombia",
+      "facebook": "INSColombia",
+      "instagram": "insaludcolombia",
+      "youtube": {
+        "ruta": "user/INSColombia",
+        "channelId": "UCX1TK_qqOOG8Q8-Ht2QicCQ"
+      },
+      "tiktok": "inscolombia_"
+    },
+    "rss": []
+  },
+  {
+    "id": "icbf",
+    "nombre": "ICBF",
+    "categoria": "Entidades nacionales",
+    "web": "https://www.icbf.gov.co",
+    "cuentas": {
+      "x": "icbfcolombia",
+      "facebook": "ICBFColombia",
+      "instagram": "icbfcolombiaoficial",
+      "youtube": {
+        "ruta": "user/ICBFInstitucional",
+        "channelId": "UCj90jmXV50k1TMSnrjE8LdA"
+      }
+    },
+    "rss": [
+      "https://www.icbf.gov.co/rss.xml"
+    ]
+  },
+  {
+    "id": "sena",
+    "nombre": "SENA",
+    "categoria": "Entidades nacionales",
+    "web": "https://www.sena.edu.co",
+    "cuentas": {
+      "x": "SENAComunica"
+    },
+    "rss": [],
+    "_manual": "Cuenta de X agregada a mano: el sitio no expone sus redes en el HTML."
+  },
+  {
+    "id": "sic",
+    "nombre": "Superintendencia de Industria y Comercio",
+    "categoria": "Superintendencias",
+    "web": "https://www.sic.gov.co",
+    "cuentas": {
+      "x": "sicsuper",
+      "youtube": {
+        "ruta": "channel/UC2-SvnOPldLjx4QT7HTCoyw",
+        "channelId": "UC2-SvnOPldLjx4QT7HTCoyw"
+      },
+      "tiktok": "sicsuper"
+    },
+    "rss": []
+  },
+  {
+    "id": "supersalud",
+    "nombre": "Superintendencia de Salud",
+    "categoria": "Superintendencias",
+    "web": "https://www.supersalud.gov.co",
+    "cuentas": {
+      "x": "supersalud",
+      "facebook": "supersalud",
+      "instagram": "supersalud"
+    },
+    "rss": []
+  },
+  {
+    "id": "superfinanciera",
+    "nombre": "Superintendencia Financiera",
+    "categoria": "Superintendencias",
+    "web": "https://www.superfinanciera.gov.co",
+    "cuentas": {
+      "x": "SFCsupervisor",
+      "facebook": "superintendencia.financiera",
+      "instagram": "superfinanciera",
+      "youtube": {
+        "ruta": "user/superfinancieracol",
+        "channelId": "UC9PhoE8BJcnr5sZfrycjJhA"
+      }
+    },
+    "rss": []
+  },
+  {
+    "id": "unidadvictimas",
+    "nombre": "Unidad para las Víctimas",
+    "categoria": "Entidades nacionales",
+    "web": "https://www.unidadvictimas.gov.co",
+    "cuentas": {
+      "x": "UnidadVictimas",
+      "facebook": "unidadvictimas",
+      "instagram": "unidadvictimas",
+      "youtube": {
+        "ruta": "user/UPARIV",
+        "channelId": "UCMDNZaDh6H1-ecWh4z_BHxg"
+      }
+    },
+    "rss": [
+      "https://www.unidadvictimas.gov.co/feed/"
+    ]
+  },
+  {
+    "id": "ant",
+    "nombre": "Agencia Nacional de Tierras",
+    "categoria": "Entidades nacionales",
+    "web": "https://www.ant.gov.co",
+    "cuentas": {
+      "x": "AgenciaTierras",
+      "facebook": "agencianacionaldetierras",
+      "instagram": "AgenciaTierras",
+      "youtube": {
+        "ruta": "channel/UCOxhksX5ARHVcLMXQLOozaA",
+        "channelId": "UCOxhksX5ARHVcLMXQLOozaA"
+      }
+    },
+    "rss": [
+      "https://www.ant.gov.co/rss.xml"
+    ]
+  },
+  {
+    "id": "parques",
+    "nombre": "Parques Nacionales Naturales",
+    "categoria": "Entidades nacionales",
+    "web": "https://www.parquesnacionales.gov.co",
+    "cuentas": {
+      "x": "parquescolombia",
+      "facebook": "ParquesNacionalesNaturalesdeColombia",
+      "instagram": "parquescolombia",
+      "youtube": {
+        "ruta": "user/ParquesNaturales1",
+        "channelId": "UC_YY06Jk-2UD6hbcGEdPIOQ"
+      },
+      "tiktok": "parquescolombia"
+    },
+    "rss": [
+      "https://www.parquesnacionales.gov.co/feed/"
+    ]
+  },
+  {
+    "id": "aerocivil",
+    "nombre": "Aerocivil",
+    "categoria": "Entidades nacionales",
+    "web": "https://www.aerocivil.gov.co",
+    "cuentas": {
+      "x": "AerocivilCol",
+      "facebook": "Aerocivil-Col-184913868210638",
+      "instagram": "aerocivilcol",
+      "youtube": {
+        "ruta": "c/Aeron%C3%A1uticaCivildeColombia",
+        "channelId": "UC1R8QyMEqE5Ev8h7Rbr31GA"
+      },
+      "tiktok": "aerocivilcol"
+    },
+    "rss": []
+  },
+  {
+    "id": "inpec",
+    "nombre": "INPEC",
+    "categoria": "Entidades nacionales",
+    "web": "https://www.inpec.gov.co",
+    "cuentas": {
+      "x": "INPEC_Colombia",
+      "facebook": "INPECoficial",
+      "instagram": "inpec_colombiaoficial",
+      "tiktok": "inpec_colombiaoficial"
+    },
+    "rss": []
+  },
+  {
+    "id": "colombiacompra",
+    "nombre": "Colombia Compra Eficiente",
+    "categoria": "Entidades nacionales",
+    "web": "https://www.colombiacompra.gov.co",
+    "cuentas": {
+      "x": "colombiacompra",
+      "facebook": "ColombiaCompraEficiente",
+      "youtube": {
+        "ruta": "channel/UC2pHOdAhZovC5vE7IsuiGbg",
+        "channelId": "UC2pHOdAhZovC5vE7IsuiGbg"
+      }
+    },
+    "rss": [
+      "https://www.colombiacompra.gov.co/feed"
+    ]
+  },
+  {
+    "id": "rtvc",
+    "nombre": "RTVC Sistema de Medios Públicos",
+    "categoria": "Medios públicos",
+    "web": "https://www.rtvc.gov.co",
+    "cuentas": {
+      "x": "INRAVISIONco",
+      "facebook": "INRAVISIONco",
+      "instagram": "rtvcco",
+      "tiktok": "rtvcco"
+    },
+    "rss": [
+      "https://www.inravision.gov.co/rss.xml"
+    ]
+  }
+]

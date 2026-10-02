@@ -1,0 +1,19 @@
+{
+  "name": "colombia-oficial",
+  "version": "1.0.0",
+  "description": "Bot de Telegram y web con las publicaciones oficiales del Estado colombiano",
+  "scripts": {
+    "descubrir": "node scripts/descubrir.js",
+    "ciclo": "node scripts/ciclo.js",
+    "ver": "node scripts/servir.js"
+  },
+  "type": "module",
+  "dependencies": {
+    "@phosphor-icons/web": "^2.1.2",
+    "fast-xml-parser": "^5.11.2",
+    "node-html-parser": "^9.0.4"
+  },
+  "engines": {
+    "node": ">=22.5"
+  }
+}

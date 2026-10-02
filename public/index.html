@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Colombia Oficial</title>
+<meta name="description" content="Todo lo que publican las entidades del Estado colombiano en sus canales oficiales, en un solo lugar.">
+<meta name="theme-color" content="#f6f7f9" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0b0c0f" media="(prefers-color-scheme: dark)">
+<meta property="og:title" content="Colombia Oficial">
+<meta property="og:description" content="Todo lo que publican las entidades del Estado colombiano, en un solo lugar.">
+<link rel="alternate" type="application/rss+xml" title="Colombia Oficial" href="feed.xml">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3CclipPath id='c'%3E%3Crect width='16' height='16' rx='4'/%3E%3C/clipPath%3E%3Cg clip-path='url(%23c)'%3E%3Crect width='16' height='8' fill='%23F2C30F'/%3E%3Crect y='8' width='16' height='4' fill='%231F47B8'/%3E%3Crect y='12' width='16' height='4' fill='%23C8202F'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preload" href="fuentes-tipograficas/geist.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="iconos/style.css">
+<link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+
+<header class="barra">
+  <div class="barra-in">
+    <a class="marca" href="./" aria-label="Colombia Oficial, inicio">
+      <span class="bandera" aria-hidden="true"><i></i><i></i><i></i></span>
+      <span>Colombia Oficial</span>
+    </a>
+    <nav class="vistas" aria-label="Secciones">
+      <button type="button" data-vista="feed" aria-current="page">Publicaciones</button>
+      <button type="button" data-vista="fuentes">Fuentes</button>
+    </nav>
+    <div class="barra-der">
+      <span class="estado-act" id="actualizado" hidden></span>
+      <a class="btn-primario" id="cta-telegram" hidden target="_blank" rel="noopener">
+        <i class="ph ph-telegram-logo" aria-hidden="true"></i><span>Seguir en Telegram</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<main id="contenido">
+  <!-- Vista: publicaciones -->
+  <div class="pagina" id="vista-feed">
+    <aside class="riel riel-izq" aria-label="Filtros">
+      <section>
+        <h2 class="riel-titulo">Categorías</h2>
+        <div class="lista-filtros" id="filtro-categorias"></div>
+      </section>
+      <section>
+        <h2 class="riel-titulo">Redes</h2>
+        <div class="lista-filtros" id="filtro-redes"></div>
+      </section>
+    </aside>
+
+    <div class="columna">
+      <div class="intro">
+        <h1>Todo lo que publica el Estado colombiano, en un solo lugar.</h1>
+        <p id="intro-sub">Webs oficiales y canales de YouTube de las entidades nacionales, revisados cada 10 minutos.</p>
+      </div>
+
+      <div class="chips" id="chips" role="group" aria-label="Categorías"></div>
+
+      <div class="herramientas">
+        <label class="campo campo-buscar">
+          <span class="vh">Buscar publicaciones</span>
+          <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+          <input type="search" id="q" placeholder="Buscar por tema, entidad o palabra" autocomplete="off">
+        </label>
+        <label class="campo campo-select">
+          <span class="vh">Entidad</span>
+          <select id="entidad"><option value="">Todas las entidades</option></select>
+          <i class="ph ph-caret-down" aria-hidden="true"></i>
+        </label>
+        <label class="campo campo-select solo-movil">
+          <span class="vh">Red</span>
+          <select id="red-movil"><option value="">Todas las redes</option></select>
+          <i class="ph ph-caret-down" aria-hidden="true"></i>
+        </label>
+      </div>
+
+      <div class="activos" id="activos" hidden></div>
+
+      <button type="button" class="aviso" id="aviso" hidden>
+        <i class="ph ph-arrow-up" aria-hidden="true"></i><span></span>
+      </button>
+      <p class="vh" aria-live="polite" id="anuncio"></p>
+
+      <div id="lista" aria-busy="true"></div>
+      <button type="button" class="btn-secundario mas" id="mas" hidden>Ver publicaciones anteriores</button>
+    </div>
+
+    <aside class="riel riel-der" aria-label="Resumen">
+      <section class="resumen">
+        <h2 class="riel-titulo">Últimas 24 horas</h2>
+        <p class="cifra" id="cifra-24h">&nbsp;</p>
+        <p class="cifra-sub" id="cifra-24h-sub">&nbsp;</p>
+      </section>
+      <section>
+        <h2 class="riel-titulo">Más activas</h2>
+        <ol class="ranking" id="ranking"></ol>
+      </section>
+      <section class="nota">
+        <p>Las cuentas y feeds se toman de la web oficial de cada entidad. <button type="button" class="enlace" data-vista="fuentes">Ver todas las fuentes</button></p>
+        <p><a class="enlace" href="feed.xml"><i class="ph ph-rss" aria-hidden="true"></i> Feed RSS</a></p>
+      </section>
+    </aside>
+  </div>
+
+  <!-- Vista: fuentes -->
+  <div class="pagina pagina-fuentes" id="vista-fuentes" hidden>
+    <div class="intro">
+      <h1>Fuentes</h1>
+      <p id="fuentes-sub"></p>
+    </div>
+    <ul class="leyenda">
+      <li><span class="red-btn ok"><i class="ph ph-globe" aria-hidden="true"></i></span>Se revisa cada 10 minutos</li>
+      <li><span class="red-btn err"><i class="ph ph-globe" aria-hidden="true"></i></span>Con errores recientes</li>
+      <li><span class="red-btn"><i class="ph ph-globe" aria-hidden="true"></i></span>Solo enlace, sin monitoreo</li>
+    </ul>
+    <div id="fuentes"></div>
+  </div>
+</main>
+
+<footer class="pie">
+  <div class="pie-in">
+    <p>Proyecto independiente, no es un canal del Gobierno de Colombia. Cada publicación enlaza a su fuente oficial.</p>
+    <p class="pie-enlaces">
+      <a href="feed.xml"><i class="ph ph-rss" aria-hidden="true"></i> RSS</a>
+      <a id="pie-repo" hidden target="_blank" rel="noopener"><i class="ph ph-github-logo" aria-hidden="true"></i> Código</a>
+    </p>
+  </div>
+</footer>
+
+<script src="app.js" type="module"></script>
+</body>
+</html>

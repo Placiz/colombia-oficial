@@ -1,0 +1,72 @@
+name: Monitor
+
+on:
+  schedule:
+    - cron: '*/10 * * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+# Las ejecuciones van en fila: nunca dos a la vez sobre el mismo estado.
+concurrency:
+  group: monitor
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci
+
+      - name: Traer el estado (rama datos)
+        run: |
+          mkdir -p datos
+          if git ls-remote --exit-code --heads origin datos > /dev/null; then
+            git fetch --depth=1 origin datos
+            git archive FETCH_HEAD | tar -x -C datos
+          fi
+
+      - name: Revisar fuentes, enviar a Telegram y generar la web
+        run: node scripts/ciclo.js
+        env:
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CANAL: ${{ vars.TELEGRAM_CANAL }}
+          X_BEARER_TOKEN: ${{ secrets.X_BEARER_TOKEN }}
+          PUENTE_X: ${{ vars.PUENTE_X }}
+          PUENTE_FACEBOOK: ${{ vars.PUENTE_FACEBOOK }}
+          PUENTE_INSTAGRAM: ${{ vars.PUENTE_INSTAGRAM }}
+          PUENTE_TIKTOK: ${{ vars.PUENTE_TIKTOK }}
+          PUENTE_THREADS: ${{ vars.PUENTE_THREADS }}
+          URL_PUBLICA: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/
+
+      - name: Guardar el estado (rama datos, un solo commit)
+        run: |
+          cd datos
+          git init -q -b datos
+          git add -A
+          git -c user.name="github-actions[bot]" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" \
+            commit -qm "Estado $(date -u +%Y-%m-%dT%H:%MZ)"
+          git push -qf "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" datos
+
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: dist
+
+      - id: deploy
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,368 @@
+[
+  {
+    "id": "presidencia",
+    "nombre": "Presidencia de la República",
+    "categoria": "Ejecutivo",
+    "web": "https://www.presidencia.gov.co"
+  },
+  {
+    "id": "vicepresidencia",
+    "nombre": "Vicepresidencia de la República",
+    "categoria": "Ejecutivo",
+    "web": "https://www.vicepresidencia.gov.co"
+  },
+  {
+    "id": "mininterior",
+    "nombre": "Ministerio del Interior",
+    "categoria": "Ministerios",
+    "web": "https://www.mininterior.gov.co"
+  },
+  {
+    "id": "cancilleria",
+    "nombre": "Cancillería",
+    "categoria": "Ministerios",
+    "web": "https://www.cancilleria.gov.co"
+  },
+  {
+    "id": "minhacienda",
+    "nombre": "Ministerio de Hacienda",
+    "categoria": "Ministerios",
+    "web": "https://www.minhacienda.gov.co"
+  },
+  {
+    "id": "minjusticia",
+    "nombre": "Ministerio de Justicia",
+    "categoria": "Ministerios",
+    "web": "https://www.minjusticia.gov.co"
+  },
+  {
+    "id": "mindefensa",
+    "nombre": "Ministerio de Defensa",
+    "categoria": "Ministerios",
+    "web": "https://www.mindefensa.gov.co"
+  },
+  {
+    "id": "minagricultura",
+    "nombre": "Ministerio de Agricultura",
+    "categoria": "Ministerios",
+    "web": "https://www.minagricultura.gov.co"
+  },
+  {
+    "id": "minsalud",
+    "nombre": "Ministerio de Salud",
+    "categoria": "Ministerios",
+    "web": "https://www.minsalud.gov.co"
+  },
+  {
+    "id": "mintrabajo",
+    "nombre": "Ministerio del Trabajo",
+    "categoria": "Ministerios",
+    "web": "https://www.mintrabajo.gov.co"
+  },
+  {
+    "id": "minenergia",
+    "nombre": "Ministerio de Minas y Energía",
+    "categoria": "Ministerios",
+    "web": "https://www.minenergia.gov.co"
+  },
+  {
+    "id": "mincit",
+    "nombre": "Ministerio de Comercio, Industria y Turismo",
+    "categoria": "Ministerios",
+    "web": "https://www.mincit.gov.co"
+  },
+  {
+    "id": "mineducacion",
+    "nombre": "Ministerio de Educación",
+    "categoria": "Ministerios",
+    "web": "https://www.mineducacion.gov.co"
+  },
+  {
+    "id": "minambiente",
+    "nombre": "Ministerio de Ambiente",
+    "categoria": "Ministerios",
+    "web": "https://www.minambiente.gov.co"
+  },
+  {
+    "id": "minvivienda",
+    "nombre": "Ministerio de Vivienda",
+    "categoria": "Ministerios",
+    "web": "https://www.minvivienda.gov.co"
+  },
+  {
+    "id": "mintic",
+    "nombre": "Ministerio TIC",
+    "categoria": "Ministerios",
+    "web": "https://www.mintic.gov.co"
+  },
+  {
+    "id": "mintransporte",
+    "nombre": "Ministerio de Transporte",
+    "categoria": "Ministerios",
+    "web": "https://www.mintransporte.gov.co"
+  },
+  {
+    "id": "mincultura",
+    "nombre": "Ministerio de las Culturas",
+    "categoria": "Ministerios",
+    "web": "https://www.mincultura.gov.co"
+  },
+  {
+    "id": "mindeporte",
+    "nombre": "Ministerio del Deporte",
+    "categoria": "Ministerios",
+    "web": "https://www.mindeporte.gov.co"
+  },
+  {
+    "id": "minciencias",
+    "nombre": "Ministerio de Ciencia",
+    "categoria": "Ministerios",
+    "web": "https://minciencias.gov.co"
+  },
+  {
+    "id": "dnp",
+    "nombre": "Departamento Nacional de Planeación",
+    "categoria": "Departamentos administrativos",
+    "web": "https://www.dnp.gov.co"
+  },
+  {
+    "id": "dane",
+    "nombre": "DANE",
+    "categoria": "Departamentos administrativos",
+    "web": "https://www.dane.gov.co"
+  },
+  {
+    "id": "funcionpublica",
+    "nombre": "Función Pública",
+    "categoria": "Departamentos administrativos",
+    "web": "https://www.funcionpublica.gov.co"
+  },
+  {
+    "id": "prosperidadsocial",
+    "nombre": "Prosperidad Social",
+    "categoria": "Departamentos administrativos",
+    "web": "https://prosperidadsocial.gov.co"
+  },
+  {
+    "id": "dian",
+    "nombre": "DIAN",
+    "categoria": "Entidades nacionales",
+    "web": "https://www.dian.gov.co"
+  },
+  {
+    "id": "senado",
+    "nombre": "Senado de la República",
+    "categoria": "Legislativo",
+    "web": "https://www.senado.gov.co"
+  },
+  {
+    "id": "camara",
+    "nombre": "Cámara de Representantes",
+    "categoria": "Legislativo",
+    "web": "https://www.camara.gov.co"
+  },
+  {
+    "id": "corteconstitucional",
+    "nombre": "Corte Constitucional",
+    "categoria": "Judicial",
+    "web": "https://www.corteconstitucional.gov.co"
+  },
+  {
+    "id": "cortesuprema",
+    "nombre": "Corte Suprema de Justicia",
+    "categoria": "Judicial",
+    "web": "https://cortesuprema.gov.co"
+  },
+  {
+    "id": "consejodeestado",
+    "nombre": "Consejo de Estado",
+    "categoria": "Judicial",
+    "web": "https://www.consejodeestado.gov.co"
+  },
+  {
+    "id": "ramajudicial",
+    "nombre": "Rama Judicial",
+    "categoria": "Judicial",
+    "web": "https://www.ramajudicial.gov.co"
+  },
+  {
+    "id": "jep",
+    "nombre": "Jurisdicción Especial para la Paz",
+    "categoria": "Judicial",
+    "web": "https://www.jep.gov.co"
+  },
+  {
+    "id": "fiscalia",
+    "nombre": "Fiscalía General de la Nación",
+    "categoria": "Judicial",
+    "web": "https://www.fiscalia.gov.co"
+  },
+  {
+    "id": "procuraduria",
+    "nombre": "Procuraduría General",
+    "categoria": "Órganos de control",
+    "web": "https://www.procuraduria.gov.co"
+  },
+  {
+    "id": "contraloria",
+    "nombre": "Contraloría General",
+    "categoria": "Órganos de control",
+    "web": "https://www.contraloria.gov.co"
+  },
+  {
+    "id": "defensoria",
+    "nombre": "Defensoría del Pueblo",
+    "categoria": "Órganos de control",
+    "web": "https://www.defensoria.gov.co"
+  },
+  {
+    "id": "registraduria",
+    "nombre": "Registraduría Nacional",
+    "categoria": "Organización electoral",
+    "web": "https://www.registraduria.gov.co"
+  },
+  {
+    "id": "cne",
+    "nombre": "Consejo Nacional Electoral",
+    "categoria": "Organización electoral",
+    "web": "https://www.cne.gov.co"
+  },
+  {
+    "id": "banrep",
+    "nombre": "Banco de la República",
+    "categoria": "Entidades nacionales",
+    "web": "https://www.banrep.gov.co"
+  },
+  {
+    "id": "policia",
+    "nombre": "Policía Nacional",
+    "categoria": "Fuerza Pública",
+    "web": "https://www.policia.gov.co"
+  },
+  {
+    "id": "ejercito",
+    "nombre": "Ejército Nacional",
+    "categoria": "Fuerza Pública",
+    "web": "https://www.ejercito.mil.co"
+  },
+  {
+    "id": "armada",
+    "nombre": "Armada de Colombia",
+    "categoria": "Fuerza Pública",
+    "web": "https://www.armada.mil.co"
+  },
+  {
+    "id": "fac",
+    "nombre": "Fuerza Aeroespacial Colombiana",
+    "categoria": "Fuerza Pública",
+    "web": "https://www.fac.mil.co"
+  },
+  {
+    "id": "cgfm",
+    "nombre": "Fuerzas Militares (Comando General)",
+    "categoria": "Fuerza Pública",
+    "web": "https://www.cgfm.mil.co"
+  },
+  {
+    "id": "migracion",
+    "nombre": "Migración Colombia",
+    "categoria": "Entidades nacionales",
+    "web": "https://www.migracioncolombia.gov.co"
+  },
+  {
+    "id": "ungrd",
+    "nombre": "UNGRD (Gestión del Riesgo)",
+    "categoria": "Entidades nacionales",
+    "web": "https://portal.gestiondelriesgo.gov.co"
+  },
+  {
+    "id": "ideam",
+    "nombre": "IDEAM",
+    "categoria": "Entidades nacionales",
+    "web": "https://www.ideam.gov.co"
+  },
+  {
+    "id": "invima",
+    "nombre": "INVIMA",
+    "categoria": "Entidades nacionales",
+    "web": "https://www.invima.gov.co"
+  },
+  {
+    "id": "ins",
+    "nombre": "Instituto Nacional de Salud",
+    "categoria": "Entidades nacionales",
+    "web": "https://www.ins.gov.co"
+  },
+  {
+    "id": "icbf",
+    "nombre": "ICBF",
+    "categoria": "Entidades nacionales",
+    "web": "https://www.icbf.gov.co"
+  },
+  {
+    "id": "sena",
+    "nombre": "SENA",
+    "categoria": "Entidades nacionales",
+    "web": "https://www.sena.edu.co"
+  },
+  {
+    "id": "sic",
+    "nombre": "Superintendencia de Industria y Comercio",
+    "categoria": "Superintendencias",
+    "web": "https://www.sic.gov.co"
+  },
+  {
+    "id": "supersalud",
+    "nombre": "Superintendencia de Salud",
+    "categoria": "Superintendencias",
+    "web": "https://www.supersalud.gov.co"
+  },
+  {
+    "id": "superfinanciera",
+    "nombre": "Superintendencia Financiera",
+    "categoria": "Superintendencias",
+    "web": "https://www.superfinanciera.gov.co"
+  },
+  {
+    "id": "unidadvictimas",
+    "nombre": "Unidad para las Víctimas",
+    "categoria": "Entidades nacionales",
+    "web": "https://www.unidadvictimas.gov.co"
+  },
+  {
+    "id": "ant",
+    "nombre": "Agencia Nacional de Tierras",
+    "categoria": "Entidades nacionales",
+    "web": "https://www.ant.gov.co"
+  },
+  {
+    "id": "parques",
+    "nombre": "Parques Nacionales Naturales",
+    "categoria": "Entidades nacionales",
+    "web": "https://www.parquesnacionales.gov.co"
+  },
+  {
+    "id": "aerocivil",
+    "nombre": "Aerocivil",
+    "categoria": "Entidades nacionales",
+    "web": "https://www.aerocivil.gov.co"
+  },
+  {
+    "id": "inpec",
+    "nombre": "INPEC",
+    "categoria": "Entidades nacionales",
+    "web": "https://www.inpec.gov.co"
+  },
+  {
+    "id": "colombiacompra",
+    "nombre": "Colombia Compra Eficiente",
+    "categoria": "Entidades nacionales",
+    "web": "https://www.colombiacompra.gov.co"
+  },
+  {
+    "id": "rtvc",
+    "nombre": "RTVC Sistema de Medios Públicos",
+    "categoria": "Medios públicos",
+    "web": "https://www.rtvc.gov.co"
+  }
+]

@@ -152,7 +152,7 @@ function bloqueX(soloX) {
   const completo = soloX || estado.xExpandido || estado.entidad;
   const mostrar = completo ? cuentas : cuentas.slice(0, X_COLAPSADO);
   const tarjeta = ({ e, x, ultima }) => {
-    const ctx = ultima ? `Publicó ${haceCuanto(ultima.fecha)}` : 'Sin actividad reciente';
+    const ctx = ultima ? `Publicó ${haceCuanto(ultima.fecha)} en ${esc(meta.redes[ultima.red]?.nombre || ultima.red)}` : 'Sin actividad reciente en sus otras fuentes';
     const detalle = ultima
       ? `Última publicación oficial ${haceCuanto(ultima.fecha)} en ${meta.redes[ultima.red]?.nombre || ultima.red}: ${ultima.titulo || ''}`
       : 'Sin publicaciones recientes en sus otras fuentes';

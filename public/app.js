@@ -21,7 +21,11 @@ let pubs = [];
 let entidades = new Map();
 let pendientes = [];
 let resaltar = new Set();
-const estado = { vista: 'feed', categoria: '', red: '', entidad: '', q: '', limite: POR_PAGINA };
+const estado = { vista: 'feed', categoria: '', entidad: '', q: '', limite: POR_PAGINA, redes: new Set(), xExpandido: false };
+// Orden en que se ofrecen las fuentes en el selector "Mostrar".
+const ORDEN_FUENTES = ['web', 'youtube', 'x', 'telegram', 'facebook', 'instagram', 'tiktok', 'threads'];
+const X_COLAPSADO = 4;
+let disponibles = [];
 
 // ---------- Utilidades ----------
 
@@ -58,13 +62,22 @@ const normalizar = (s = '') => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowe
 
 function leerUrl() {
   const u = new URLSearchParams(location.search);
-  for (const k of ['categoria', 'red', 'entidad', 'q']) estado[k] = u.get(k) || '';
+  for (const k of ['categoria', 'entidad', 'q']) estado[k] = u.get(k) || '';
   estado.vista = u.get('vista') === 'fuentes' ? 'fuentes' : 'feed';
+  let redes = u.get('redes') ?? (u.get('red') || null);
+  if (redes == null) {
+    try { redes = localStorage.getItem('redes'); } catch {}
+  }
+  estado.redesGuardadas = redes ? redes.split(',').filter(Boolean) : null;
+}
+function redesPorDefecto() {
+  return disponibles.length > 0 && estado.redes.size === disponibles.length;
 }
 function escribirUrl() {
   const u = new URLSearchParams();
   if (estado.vista === 'fuentes') u.set('vista', 'fuentes');
-  for (const k of ['categoria', 'red', 'entidad', 'q']) if (estado[k]) u.set(k, estado[k]);
+  for (const k of ['categoria', 'entidad', 'q']) if (estado[k]) u.set(k, estado[k]);
+  if (disponibles.length && !redesPorDefecto()) u.set('redes', [...estado.redes].join(','));
   const qs = u.toString();
   history.replaceState(null, '', qs ? `?${qs}` : location.pathname);
 }
@@ -87,7 +100,7 @@ function filtradas() {
   return pubs.filter((p) => {
     const e = entidades.get(p.entidad);
     if (estado.categoria && e?.categoriaId !== estado.categoria) return false;
-    if (estado.red && p.red !== estado.red) return false;
+    if (!estado.redes.has(p.red)) return false;
     if (estado.entidad && p.entidad !== estado.entidad) return false;
     if (q && !normalizar(`${p.titulo} ${p.texto} ${e?.nombre || ''}`).includes(q)) return false;
     return true;
@@ -118,14 +131,92 @@ function item(p) {
     </article>`;
 }
 
+// X no permite leer sus publicaciones sin pagar: en su lugar se muestran las
+// cuentas oficiales con contexto (última actividad conocida de la entidad).
+function cuentasX() {
+  const q = normalizar(estado.q.trim());
+  const ultima = new Map();
+  for (const p of pubs) if (!ultima.has(p.entidad)) ultima.set(p.entidad, p);
+  return meta.entidades
+    .map((e) => ({ e, x: e.cuentas.find((c) => c.red === 'x'), ultima: ultima.get(e.id) }))
+    .filter(({ e, x }) => x
+      && (!estado.categoria || e.categoriaId === estado.categoria)
+      && (!estado.entidad || e.id === estado.entidad)
+      && (!q || normalizar(`${e.nombre} ${x.usuario}`).includes(q)))
+    .sort((a, b) => (b.ultima?.fecha || '').localeCompare(a.ultima?.fecha || ''));
+}
+
+function bloqueX(soloX) {
+  const cuentas = cuentasX();
+  if (!cuentas.length) return '';
+  const completo = soloX || estado.xExpandido || estado.entidad;
+  const mostrar = completo ? cuentas : cuentas.slice(0, X_COLAPSADO);
+  const tarjeta = ({ e, x, ultima }) => {
+    const ctx = ultima ? `Publicó ${haceCuanto(ultima.fecha)}` : 'Sin actividad reciente';
+    const detalle = ultima
+      ? `Última publicación oficial ${haceCuanto(ultima.fecha)} en ${meta.redes[ultima.red]?.nombre || ultima.red}: ${ultima.titulo || ''}`
+      : 'Sin publicaciones recientes en sus otras fuentes';
+    return `<a class="xcuenta" href="${esc(x.url)}" target="_blank" rel="noopener" title="${esc(detalle)}">
+      <span class="mono" aria-hidden="true">${esc(iniciales(e.nombre))}</span>
+      <span class="xc-texto"><b>${esc(e.nombre)}</b><span class="xc-usuario">@${esc(x.usuario)}</span><span class="xc-ctx">${ctx}</span></span>
+      <span class="xc-ir">Ver en X<i class="ph ph-arrow-up-right" aria-hidden="true"></i></span>
+    </a>`;
+  };
+  let pie = '';
+  if (!completo && cuentas.length > X_COLAPSADO) pie = `<button type="button" class="enlace" data-accion="expandir-x">Ver las ${cuentas.length} cuentas</button>`;
+  else if (!soloX && !estado.entidad && estado.xExpandido && cuentas.length > X_COLAPSADO) pie = `<button type="button" class="enlace" data-accion="expandir-x">Mostrar menos</button>`;
+  return `<section class="bloque-x" aria-labelledby="titulo-x">
+    <div class="bloque-x-h">
+      <h2 id="titulo-x"><i class="ph ph-x-logo" aria-hidden="true"></i>En X</h2>
+      <p>X no permite leer sus publicaciones gratis, así que aquí te llevamos directo a cada cuenta oficial.</p>
+    </div>
+    <div class="xcuentas${soloX || completo ? '' : ' colapsadas'}">${mostrar.map(tarjeta).join('')}</div>
+    ${pie}
+  </section>`;
+}
+
+function pintarPerfil() {
+  const cont = $('#perfil');
+  const e = entidades.get(estado.entidad);
+  cont.hidden = !e;
+  if (!e) return (cont.innerHTML = '');
+  const enlaces = [{ red: 'web', url: e.web, usuario: '' }, ...e.cuentas];
+  cont.innerHTML = `<div class="perfil">
+    <span class="mono" aria-hidden="true">${esc(iniciales(e.nombre))}</span>
+    <div class="perfil-texto"><h2>${esc(e.nombre)}</h2><p>${esc(e.categoria)}</p></div>
+    <div class="perfil-cuentas">${enlaces
+      .map((c) => `<a href="${esc(c.url)}" target="_blank" rel="noopener" title="${esc(c.usuario ? '@' + c.usuario : e.web)}"><i class="ph ${ICONO[c.red] || 'ph-globe'}" aria-hidden="true"></i>${esc(meta.redes[c.red]?.nombre || c.red)}</a>`)
+      .join('')}</div>
+  </div>`;
+}
+
 function pintarLista() {
   const lista = $('#lista');
   const todas = filtradas();
   const visibles = todas.slice(0, estado.limite);
   lista.removeAttribute('aria-busy');
+  const conX = estado.redes.has('x');
+  const soloX = conX && estado.redes.size === 1;
+  const htmlX = conX ? bloqueX(soloX) : '';
+
+  if (!estado.redes.size) {
+    lista.innerHTML = `<div class="vacio"><h3>No hay fuentes seleccionadas</h3><p>Elige en "Mostrar" si quieres ver páginas oficiales, YouTube o X.</p></div>`;
+    $('#mas').hidden = true;
+    return;
+  }
+  if (soloX) {
+    lista.innerHTML = htmlX || `<div class="vacio"><h3>Sin cuentas de X para este filtro</h3><p>Esta entidad no enlaza una cuenta de X desde su web oficial.</p></div>`;
+    $('#mas').hidden = true;
+    return;
+  }
 
   if (!visibles.length) {
-    const hayFiltros = estado.categoria || estado.red || estado.entidad || estado.q;
+    if (htmlX) {
+      lista.innerHTML = htmlX;
+      $('#mas').hidden = true;
+      return;
+    }
+    const hayFiltros = estado.categoria || estado.entidad || estado.q || !redesPorDefecto();
     lista.innerHTML = hayFiltros
       ? `<div class="vacio"><h3>Nada coincide con estos filtros</h3><p>Prueba con otra palabra o quita alguno de los filtros activos.</p><button type="button" class="btn-secundario" data-accion="limpiar">Quitar filtros</button></div>`
       : `<div class="vacio"><h3>Todavía no hay publicaciones</h3><p>El monitor revisa las fuentes cada 10 minutos. Vuelve en un rato.</p></div>`;
@@ -139,7 +230,7 @@ function pintarLista() {
     if (!grupos.has(clave)) grupos.set(clave, []);
     grupos.get(clave).push(p);
   }
-  lista.innerHTML = [...grupos]
+  lista.innerHTML = htmlX + [...grupos]
     .map(([clave, items]) => {
       const [titulo, sub] = etiquetaDia(clave, new Date(items[0].fecha));
       return `<section class="dia" aria-label="${esc(titulo)}"><h2 class="dia-titulo">${esc(titulo)}${sub ? ` <span>${esc(sub)}</span>` : ''}</h2>${items.map(item).join('')}</section>`;
@@ -153,7 +244,6 @@ function pintarActivos() {
   const chips = [];
   const cat = meta.categorias.find((c) => c.id === estado.categoria);
   if (cat) chips.push(['categoria', cat.nombre]);
-  if (estado.red) chips.push(['red', meta.redes[estado.red]?.nombre || estado.red]);
   if (estado.entidad) chips.push(['entidad', entidades.get(estado.entidad)?.nombre || estado.entidad]);
   cont.hidden = !chips.length;
   cont.innerHTML =
@@ -184,25 +274,34 @@ function pintarFiltros() {
       )
       .join('');
 
-  const redes = redesMonitoreadas();
-  $('#filtro-redes').innerHTML =
-    btn('data-red=""', '<i class="ph ph-stack" aria-hidden="true"></i><span>Todas</span>', !estado.red) +
-    redes.map((r) => btn(`data-red="${r}"`, `<i class="ph ${ICONO[r]}" aria-hidden="true"></i><span>${esc(meta.redes[r].nombre)}</span>`, estado.red === r)).join('');
+  $('#mostrar').innerHTML = disponibles
+    .map((r) => {
+      const activo = estado.redes.has(r);
+      return `<button type="button" class="opcion" data-red="${r}" aria-pressed="${activo}"><i class="ph ${ICONO[r]}" aria-hidden="true"></i>${esc(meta.redes[r].nombre)}<i class="ph ph-check marca-check" aria-hidden="true"></i></button>`;
+    })
+    .join('');
 
   $('#chips').innerHTML =
     `<button type="button" class="chip" data-categoria="" aria-pressed="${!estado.categoria}">Todas</button>` +
     meta.categorias.map((c) => `<button type="button" class="chip" data-categoria="${c.id}" aria-pressed="${estado.categoria === c.id}">${esc(c.nombre)}</button>`).join('');
 
-  const selRed = $('#red-movil');
-  selRed.innerHTML = `<option value="">Todas las redes</option>` + redes.map((r) => `<option value="${r}">${esc(meta.redes[r].nombre)}</option>`).join('');
-  selRed.value = estado.red;
   $('#entidad').value = estado.entidad;
   $('#q').value = estado.q;
 }
 
-function redesMonitoreadas() {
+function calcularDisponibles() {
   const s = new Set(pubs.map((p) => p.red));
-  return Object.keys(meta.redes).filter((r) => s.has(r));
+  if (meta.entidades.some((e) => e.cuentas.some((c) => c.red === 'x'))) s.add('x');
+  disponibles = ORDEN_FUENTES.filter((r) => s.has(r) && meta.redes[r]);
+  const guardadas = estado.redesGuardadas?.filter((r) => disponibles.includes(r));
+  estado.redes = new Set(guardadas?.length ? guardadas : disponibles);
+}
+
+function guardarRedes() {
+  estado.redesGuardadas = [...estado.redes];
+  try {
+    redesPorDefecto() ? localStorage.removeItem('redes') : localStorage.setItem('redes', [...estado.redes].join(','));
+  } catch {}
 }
 
 function pintarResumen() {
@@ -224,7 +323,7 @@ function pintarResumen() {
     : `<li class="cifra-sub">Sin actividad en las últimas 24 horas.</li>`;
 
   const totalEnt = meta.entidades.length;
-  $('#intro-sub').textContent = `Webs oficiales y canales de YouTube de ${totalEnt} entidades nacionales, revisados cada 10 minutos.`;
+  $('#intro-sub').textContent = `Páginas oficiales, YouTube y cuentas de X de ${totalEnt} entidades nacionales, revisadas cada 10 minutos.`;
 }
 
 function pintarEstado() {
@@ -302,6 +401,7 @@ function aplicar() {
   pintarAviso();
   pintarFiltros();
   pintarActivos();
+  pintarPerfil();
   pintarLista();
   escribirUrl();
 }
@@ -335,6 +435,7 @@ async function refrescar() {
     const conocidas = new Set(pubs.map((p) => p.id));
     const llegadas = nuevas.filter((p) => !conocidas.has(p.id));
     pubs = nuevas;
+    calcularDisponibles();
     pintarEstado();
     pintarResumen();
     if (!llegadas.length) return;
@@ -376,16 +477,23 @@ document.addEventListener('click', (ev) => {
     t.classList.contains('chip') && t.scrollIntoView({ block: 'nearest', inline: 'nearest' });
     return aplicar();
   }
-  if (t.dataset.red !== undefined) {
-    estado.red = estado.red === t.dataset.red ? '' : t.dataset.red;
+  if (t.dataset.red) {
+    estado.redes.has(t.dataset.red) ? estado.redes.delete(t.dataset.red) : estado.redes.add(t.dataset.red);
+    guardarRedes();
     return aplicar();
+  }
+  if (t.dataset.accion === 'expandir-x') {
+    estado.xExpandido = !estado.xExpandido;
+    return pintarLista();
   }
   if (t.dataset.quitar) {
     estado[t.dataset.quitar] = '';
     return aplicar();
   }
   if (t.dataset.accion === 'limpiar') {
-    Object.assign(estado, { categoria: '', red: '', entidad: '', q: '' });
+    Object.assign(estado, { categoria: '', entidad: '', q: '' });
+    estado.redes = new Set(disponibles);
+    guardarRedes();
     return aplicar();
   }
   if (t.dataset.accion === 'reintentar') return iniciar();
@@ -400,7 +508,6 @@ $('#q').addEventListener('input', (e) => {
   }, 200);
 });
 $('#entidad').addEventListener('change', (e) => { estado.entidad = e.target.value; aplicar(); });
-$('#red-movil').addEventListener('change', (e) => { estado.red = e.target.value; aplicar(); });
 $('#aviso').addEventListener('click', mostrarPendientes);
 $('#mas').addEventListener('click', () => { estado.limite += POR_PAGINA; pintarLista(); });
 document.addEventListener('visibilitychange', () => !document.hidden && refrescar());
@@ -422,6 +529,7 @@ async function iniciar() {
     for (const e of meta.entidades.filter((x) => x.categoriaId === c.id)) g.append(new Option(e.nombre, e.id));
     sel.append(g);
   }
+  calcularDisponibles();
   pintarEstado();
   pintarResumen();
   aplicar();

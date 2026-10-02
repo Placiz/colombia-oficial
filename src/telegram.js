@@ -27,12 +27,19 @@ export function formatear(p) {
   const ent = entidadPorId.get(p.entidad);
   const red = REDES[p.red] || { nombre: p.red };
   const cuerpo = (p.texto && p.texto !== p.titulo ? p.texto : '').slice(0, 400);
+  const x = ent?.cuentas?.x;
   const bloques = [
     [`<b>${esc(ent?.nombre || p.entidad)}</b> | ${esc(red.nombre)}`],
     [p.titulo && `<b>${esc(p.titulo)}</b>`, cuerpo && esc(cuerpo) + (p.texto.length > 400 ? '…' : '')],
     [
       p.url && `<a href="${esc(p.url)}">Ver publicación</a>`,
-      `#${(ent?.id || p.entidad).replace(/[^a-z0-9_]/gi, '')} #${slug(ent?.categoria || '').replace(/-/g, '_')}`,
+      // X no se puede leer gratis: se enlaza la cuenta oficial como contexto.
+      x && p.red !== 'x' && `También en X: <a href="https://x.com/${esc(x)}">@${esc(x)}</a>`,
+    ],
+    [
+      [ent?.id || p.entidad, slug(ent?.categoria || ''), slug(red.nombre)]
+        .map((t) => '#' + t.replace(/-/g, '').replace(/[^a-z0-9_]/gi, ''))
+        .join(' '),
     ],
   ];
   return bloques.map((b) => b.filter(Boolean).join('\n')).filter(Boolean).join('\n\n');

@@ -49,8 +49,13 @@ extrae sus cuentas oficiales y feeds RSS, y los guarda en `fuentes.json`
 
 ### X (Twitter)
 
-`fuentes.json` ya tiene la cuenta oficial de X de 58 de las 61 entidades. Para
-leer sus posts se usa la API oficial, que cobra unos 0,005 USD por post leído
+`fuentes.json` tiene la cuenta oficial de X de 58 de las 61 entidades. Sin
+pagar nada, la web las muestra en la sección "En X" (con la última actividad
+conocida de cada entidad) y cada mensaje de Telegram enlaza la cuenta de X de
+la entidad. En la web, el selector "Mostrar" permite elegir qué fuentes ver
+(página oficial, YouTube, X) y la elección se recuerda.
+
+Opcional y de pago: para leer los posts de X se usa la API oficial, que cobra unos 0,005 USD por post leído
 (pago por uso, sin cuota fija). El monitor guarda el último post visto de cada
 cuenta, así que cada post se paga una sola vez y una revisión sin novedades no
 cuesta nada. Para activarlo:

@@ -3,7 +3,7 @@ import { resolve } from 'node:path';
 import { config, ROOT } from './config.js';
 
 export const REDES = {
-  web: { nombre: 'Sitio web', emoji: '🌐' },
+  web: { nombre: 'Página oficial', emoji: '🌐' },
   youtube: { nombre: 'YouTube', emoji: '▶️' },
   x: { nombre: 'X', emoji: '𝕏' },
   facebook: { nombre: 'Facebook', emoji: '📘' },

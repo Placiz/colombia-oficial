@@ -45,16 +45,12 @@
         <h2 class="riel-titulo">Categorías</h2>
         <div class="lista-filtros" id="filtro-categorias"></div>
       </section>
-      <section>
-        <h2 class="riel-titulo">Redes</h2>
-        <div class="lista-filtros" id="filtro-redes"></div>
-      </section>
     </aside>
 
     <div class="columna">
       <div class="intro">
         <h1>Todo lo que publica el Estado colombiano, en un solo lugar.</h1>
-        <p id="intro-sub">Webs oficiales y canales de YouTube de las entidades nacionales, revisados cada 10 minutos.</p>
+        <p id="intro-sub">Páginas oficiales, YouTube y cuentas de X de las entidades nacionales, revisadas cada 10 minutos.</p>
       </div>
 
       <div class="chips" id="chips" role="group" aria-label="Categorías"></div>
@@ -70,12 +66,14 @@
           <select id="entidad"><option value="">Todas las entidades</option></select>
           <i class="ph ph-caret-down" aria-hidden="true"></i>
         </label>
-        <label class="campo campo-select solo-movil">
-          <span class="vh">Red</span>
-          <select id="red-movil"><option value="">Todas las redes</option></select>
-          <i class="ph ph-caret-down" aria-hidden="true"></i>
-        </label>
       </div>
+
+      <div class="mostrar" role="group" aria-labelledby="mostrar-titulo">
+        <span id="mostrar-titulo">Mostrar</span>
+        <div class="mostrar-opciones" id="mostrar"></div>
+      </div>
+
+      <div id="perfil" hidden></div>
 
       <div class="activos" id="activos" hidden></div>
 
